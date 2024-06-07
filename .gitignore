@@ -1,5 +1,6 @@
 *.iml
 .gradle
+.idea
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -13,3 +14,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/proguard-rules.pro
+/ui/consumer-rules.pro
+/ui/proguard-rules.pro
