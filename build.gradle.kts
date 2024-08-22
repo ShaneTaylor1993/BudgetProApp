@@ -5,12 +5,13 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.9.20" apply false
     id("com.android.library") version "8.4.1" apply false
     id("com.google.dagger.hilt.android") version "2.44" apply false
-    id("com.google.devtools.ksp") version "1.9.0-1.0.12"
+    id("com.google.devtools.ksp") version "2.0.10-1.0.24"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.10" apply false
 }
 
 buildscript {
     dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.9.20"))
+        classpath(kotlin("gradle-plugin", version = "2.0.10"))
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.50")
     }
 }
