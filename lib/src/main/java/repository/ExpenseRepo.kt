@@ -10,4 +10,10 @@ class ExpenseRepo @Inject constructor(
     suspend fun getExpenses(): List<Expense> {
         return service.getExpenses()
     }
+    suspend fun addExpense(expense: Expense) {
+        service.addExpense(expense)
+    }
+    suspend fun deleteExpense(expense: Expense) {
+        service.deleteExpense(expense)
+    }
 }
