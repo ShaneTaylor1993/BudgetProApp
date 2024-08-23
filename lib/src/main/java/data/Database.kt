@@ -2,11 +2,9 @@ package data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import service.ExpenseDao
-import service.IncomeDao
+import service.TransactionDao
 
-@Database(entities = [Income::class, Expense::class], version = 1)
+@Database(entities = [Transaction::class], version = 1)
 abstract class Database : RoomDatabase() {
-    abstract fun incomeDao(): IncomeDao
-    abstract fun expenseDao(): ExpenseDao
+    abstract fun transactionDao(): TransactionDao
 }
