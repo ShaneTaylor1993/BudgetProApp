@@ -5,11 +5,12 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import data.Transaction
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TransactionDao {
-    @Query("SELECT transaction_category FROM transaction_table WHERE transaction_type = :type")
-    suspend fun getListByType(type: String): List<Transaction>
+    @Query("SELECT * FROM transaction_table WHERE transaction_type = :type")
+    fun getListByType(type: String): Flow<List<Transaction>>
 
     @Insert
     suspend fun addTransaction(transaction: Transaction)
