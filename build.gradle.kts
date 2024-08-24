@@ -13,6 +13,5 @@ buildscript {
     dependencies {
         classpath(kotlin("gradle-plugin", version = "2.0.10"))
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.50")
-        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.11.0.0")
     }
 }

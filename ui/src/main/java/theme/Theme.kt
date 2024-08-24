@@ -1,4 +1,4 @@
-package com.example.budgetpro.ui.theme
+package theme
 
 import android.app.Activity
 import android.os.Build

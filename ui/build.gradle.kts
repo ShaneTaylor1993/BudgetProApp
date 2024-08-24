@@ -18,6 +18,10 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    buildFeatures {
+        compose = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -61,4 +65,5 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-manifest:1.6.8")
     implementation("io.coil-kt:coil-compose:2.6.0")
     testImplementation("io.coil-kt:coil-test:2.6.0")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.6.8")
 }
