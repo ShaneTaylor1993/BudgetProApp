@@ -1,6 +1,7 @@
 package data
 
 data class UserTransaction(
-    val amount: Float,
-    val category: String
+    val amount: Float? = 0f,
+    val category: String? = "",
+    val transactionType: String? = ""
 )

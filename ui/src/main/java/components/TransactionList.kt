@@ -41,10 +41,10 @@ fun TransactionItem(userTransaction: UserTransaction) {
         Row(
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(text = userTransaction.category)
+            Text(text = userTransaction.category ?: "")
             Text(
-                modifier = Modifier.padding(start = 16.dp),
-                text = userTransaction.amount.toString())
+                modifier = Modifier.padding(start = 175.dp),
+                text = "$${userTransaction.amount}")
         }
     }
 
@@ -58,10 +58,10 @@ fun TransactionListPreview() {
         TransactionList(
             title = "Income",
             userTransactions = listOf(
-                UserTransaction(2.00f, "Food"),
-                UserTransaction(2.00f, "Food"),
-                UserTransaction(2.00f, "Food"),
-                UserTransaction(2.00f, "Food")
+                UserTransaction(2.00f, "Food", "income"),
+                UserTransaction(2.00f, "Food", "income"),
+                UserTransaction(2.00f, "Food", "income"),
+                UserTransaction(2.00f, "Food", "income"),
             )
         )
     }

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TransactionDao {
     @Query("SELECT * FROM transaction_table WHERE transaction_type = :type")
-    fun getListByType(type: String): Flow<List<Transaction>>
+    suspend fun getListByType(type: String): List<Transaction>
 
     @Insert
     suspend fun addTransaction(transaction: Transaction)
