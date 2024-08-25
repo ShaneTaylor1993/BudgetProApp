@@ -8,11 +8,11 @@ import javax.inject.Inject
 class TransactionRepository @Inject constructor(
     private val service: TransactionDao
 ) {
-    suspend fun getListOfTransactions(type: String): List<Transaction> {
+    fun getListOfTransactions(type: String): Flow<List<Transaction>> {
         return service.getListByType(type)
     }
 
-    suspend fun addTransaction(type: String, category: String, amount: Float) {
+    suspend fun addTransaction(type: String?, category: String?, amount: Float?) {
         service.addTransaction(
             Transaction(
                 transactionType = type,

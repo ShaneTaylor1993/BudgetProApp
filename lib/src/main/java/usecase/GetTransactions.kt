@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GetTransactions @Inject constructor(
     private val repo: TransactionRepository,
 ) {
-    suspend fun getTransactions(type: String): List<Transaction> {
+    fun getTransactions(type: String): Flow<List<Transaction>> {
             return repo.getListOfTransactions(type)
         }
 }

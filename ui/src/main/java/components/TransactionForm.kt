@@ -18,7 +18,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +26,7 @@ import theme.BudgetProTheme
 
 @Composable
 fun TransactionForm(
-    onTransactionAdded: (UserTransaction) -> Unit = {}
+    onTransactionAdded: (UserTransaction) -> Unit
 ) {
     var categoryState by remember { mutableStateOf("") }
     var amountState by remember { mutableStateOf("") }
@@ -88,6 +87,6 @@ fun TransactionForm(
 @Composable
 fun Preview_TransactionForm() {
     BudgetProTheme {
-        TransactionForm()
+        TransactionForm() {}
     }
 }
