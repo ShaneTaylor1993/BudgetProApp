@@ -2,6 +2,7 @@ package components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,9 +20,6 @@ import theme.BudgetProTheme
 
 @Composable
 fun TransactionList(title: String, userTransactions: List<UserTransaction>) {
-    Card(
-        shape = RectangleShape
-    ) {
         Text(text = title)
         LazyColumn {
             items(userTransactions) { transaction ->
@@ -32,18 +30,19 @@ fun TransactionList(title: String, userTransactions: List<UserTransaction>) {
             }
 
         }
-    }
 }
 
 @Composable
 fun TransactionItem(userTransaction: UserTransaction) {
     Surface {
         Row(
-            horizontalArrangement = Arrangement.Center
+            modifier = Modifier.fillMaxWidth()
+                .padding(start = 10.dp, end = 10.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(text = userTransaction.category ?: "")
             Text(
-                modifier = Modifier.padding(start = 175.dp),
+                // = Modifier.padding(start = 175.dp),
                 text = "$${userTransaction.amount}")
         }
     }

@@ -2,6 +2,7 @@ package repository
 
 import data.Transaction
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharedFlow
 import service.TransactionDao
 import javax.inject.Inject
 

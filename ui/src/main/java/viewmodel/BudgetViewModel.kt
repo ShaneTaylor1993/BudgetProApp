@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import data.UserTransaction
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.count
@@ -33,16 +34,7 @@ class BudgetViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val income = getTransactions.getTransactions("INCOME").map {
-                it.map {
-                    UserTransaction(
-                        amount = it.transactionAmount,
-                        category = it.transactionCategory,
-                        transactionType = it.transactionType
-                    )
-                }
-            }
-            val expense = getTransactions.getTransactions("EXPENSE").map {
+            val income = getTransactions.getTransactions("Income").map {
                 it.map {
                     UserTransaction(
                         amount = it.transactionAmount,
@@ -52,8 +44,22 @@ class BudgetViewModel @Inject constructor(
                 }
             }
 
+
             income.collect {
                 _incomeList.emit(it)
+            }
+
+        }
+
+        viewModelScope.launch {
+            val expense = getTransactions.getTransactions("Expense").map {
+                it.map {
+                    UserTransaction(
+                        amount = it.transactionAmount,
+                        category = it.transactionCategory,
+                        transactionType = it.transactionType
+                    )
+                }
             }
             expense.collect {
                 _expenseList.emit(it)

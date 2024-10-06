@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import data.Transaction
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharedFlow
 
 @Dao
 interface TransactionDao {
