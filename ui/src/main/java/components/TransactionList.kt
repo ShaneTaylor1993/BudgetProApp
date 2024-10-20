@@ -23,6 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import data.UserTransaction
 import theme.BudgetProTheme
@@ -64,8 +66,14 @@ fun TransactionItem(userTransaction: UserTransaction) {
                 .padding(10.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = userTransaction.category ?: "")
-            Text(text = "$${userTransaction.amount}")
+            Text(
+                text = userTransaction.formattedCategory,
+                fontSize = TextUnit(25f, TextUnitType.Sp)
+            )
+            Text(
+                text = "$${userTransaction.amount}",
+                fontSize = TextUnit(25f, TextUnitType.Sp)
+            )
         }
     }
 }

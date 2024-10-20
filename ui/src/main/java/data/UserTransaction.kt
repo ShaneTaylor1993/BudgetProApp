@@ -11,4 +11,9 @@ data class UserTransaction(
     val transactionType: String? = "",
     val date: LocalDate? = LocalDate.now(),
     val id: Int = 0,
-) : Serializable
+) : Serializable {
+    val formattedCategory: String
+        get() {
+            return category?.replaceFirstChar { it.uppercase() } ?: ""
+        }
+}

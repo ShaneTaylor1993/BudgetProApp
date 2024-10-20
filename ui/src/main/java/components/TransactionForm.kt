@@ -38,12 +38,8 @@ fun TransactionForm(
 ) {
     var categoryState by remember { mutableStateOf("") }
     var amountState by remember { mutableStateOf("") }
-    var transactionTypeState by remember { mutableStateOf("") }
     var selectedValue by remember {
         mutableStateOf("Income")
-    }
-    var showDropdownMenu by remember {
-        mutableStateOf(false)
     }
 
     Column(
