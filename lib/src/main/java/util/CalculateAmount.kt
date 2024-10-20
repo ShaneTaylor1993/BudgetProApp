@@ -1,9 +1,9 @@
 package util
 
-fun calculateAmount(operator: String, amount: Int): Int {
+fun calculateAmount(operator: String, transactionAmount: Int, budgetAmount: Int): Int {
     return if (operator == "+") {
-        amount
+        budgetAmount + transactionAmount
     } else {
-        -amount
+        budgetAmount - transactionAmount
     }
 }

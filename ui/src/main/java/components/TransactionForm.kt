@@ -40,7 +40,7 @@ fun TransactionForm(
     var amountState by remember { mutableStateOf("") }
     var transactionTypeState by remember { mutableStateOf("") }
     var selectedValue by remember {
-        mutableStateOf("")
+        mutableStateOf("Income")
     }
     var showDropdownMenu by remember {
         mutableStateOf(false)
@@ -65,7 +65,7 @@ fun TransactionForm(
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
             TransactionType {
-                selectedValue
+                selectedValue = it
             }
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -101,10 +101,13 @@ fun TransactionType(onValueChange: (String) -> Unit) {
         mutableStateOf(false)
     }
     var selectedItem by remember {
-        mutableStateOf(items[0])
+        mutableStateOf(
+            items[0]
+        )
     }
     Box( contentAlignment = Alignment.Center) {
         TextField(
+            readOnly = true,
             value = selectedItem,
             onValueChange = { selectedItem = it },
             label = { Text("Transaction Type") },
