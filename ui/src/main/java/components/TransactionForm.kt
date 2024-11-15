@@ -12,6 +12,8 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -26,6 +28,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -44,7 +47,7 @@ fun TransactionForm(
 
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(horizontal = 8.dp)
             .fillMaxWidth()
     ) {
         Card {
@@ -68,6 +71,9 @@ fun TransactionForm(
                 horizontalArrangement = Arrangement.Center
             ) {
                 Button(
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(red = 111, green = 138, blue = 183)
+                    ),
                     onClick = {
                         val transaction = UserTransaction(
                             category = categoryState,
@@ -78,12 +84,6 @@ fun TransactionForm(
                     }
                 ) {
                     Text("Add Transaction")
-                }
-                Spacer(modifier = Modifier.width(8.dp))
-                Button(
-                    onClick = { /* Handle cancel action */ }
-                ) {
-                    Text("Cancel")
                 }
             }
         }
@@ -101,14 +101,14 @@ fun TransactionType(onValueChange: (String) -> Unit) {
             items[0]
         )
     }
-    Box( contentAlignment = Alignment.Center) {
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         TextField(
             readOnly = true,
             value = selectedItem,
             onValueChange = { selectedItem = it },
             label = { Text("Transaction Type") },
             trailingIcon = {
-                IconButton( onClick = {expanded = true}) {
+                IconButton(onClick = { expanded = true }) {
                     Icon(imageVector = Icons.Filled.ArrowDropDown, contentDescription = "")
                 }
             }

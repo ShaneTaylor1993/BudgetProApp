@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
-    kotlin("plugin.serialization") version "2.0.10"
+    kotlin("plugin.serialization") version "2.0.20"
 }
 
 android {
@@ -41,8 +41,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.51.1")
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
 //    implementation("androidx.annotation:annotation-jvm:1.8.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3")
     testImplementation("junit:junit:4.13.2")
     testImplementation("app.cash.turbine:turbine:1.0.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0")

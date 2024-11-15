@@ -12,12 +12,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import components.BudgetText
 import components.TransactionForm
 import components.TransactionList
+import dagger.hilt.android.lifecycle.HiltViewModel
 import data.UserTransaction
 import theme.BudgetProTheme
 import viewmodel.BudgetViewModel
 
 @Composable
-fun HomeScreen(vm: BudgetViewModel = viewModel()) {
+fun HomeScreen(vm: BudgetViewModel) {
     val income = vm.incomeList.collectAsState().value
     val expense = vm.expenseList.collectAsState().value
     val budget = vm.budget.collectAsState().value
@@ -31,19 +32,13 @@ fun Home(
     budget: Int,
     onTransactionAdded: (UserTransaction) -> Unit,
 ) {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = Color(red = 1, green = 46, blue = 81)
-    ) {
-        Column {
-            BudgetText(budget = budget)
-            TransactionForm(onTransactionAdded)
-            TransactionList(title = "Income", userTransactions = income)
-            TransactionList(title = "Expense", userTransactions = expense)
-        }
+    Column {
+        BudgetText(budget = budget)
+        TransactionForm(onTransactionAdded)
+        TransactionList(title = "Income", userTransactions = income)
+        TransactionList(title = "Expense", userTransactions = expense)
     }
 }
-
 
 
 @Composable
@@ -58,7 +53,7 @@ fun PreviewHome() {
                 UserTransaction(2.00f, "Food", "income"),
             ),
             expense = listOf(
-                UserTransaction(2.00f, "Food", "income",),
+                UserTransaction(2.00f, "Food", "income"),
                 UserTransaction(2.00f, "Food", "income"),
                 UserTransaction(2.00f, "Food", "income"),
                 UserTransaction(2.00f, "Food", "income"),

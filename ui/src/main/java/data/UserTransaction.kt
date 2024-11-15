@@ -2,8 +2,6 @@ package data
 
 import java.io.Serializable
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import kotlin.random.Random
 
 data class UserTransaction(
     val amount: Float? = 0f,
